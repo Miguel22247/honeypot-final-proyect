@@ -1,0 +1,12 @@
+/home/cowrie/cowrie/var/log/cowrie/*.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 644 cowrie cowrie
+    postrotate
+        /bin/systemctl reload cowrie
+    endscript
+}

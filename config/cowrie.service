@@ -1,0 +1,16 @@
+[Unit]
+Description=Cowrie SSH/Telnet Honeypot
+After=network.target
+
+[Service]
+Type=forking
+User=cowrie
+Group=cowrie
+ExecStart=/usr/bin/authbind --deep /home/cowrie/cowrie/bin/cowrie start
+ExecStop=/home/cowrie/cowrie/bin/cowrie stop
+Restart=on-failure
+RestartSec=10
+WorkingDirectory=/home/cowrie/cowrie
+
+[Install]
+WantedBy=multi-user.target
