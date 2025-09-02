@@ -1,0 +1,44 @@
+# Backup files created by fix-markdown.sh script
+*.md.backup
+
+# Cowrie honeypot logs and data (if running locally for testing)
+var/log/cowrie/
+var/lib/cowrie/downloads/
+var/lib/cowrie/tty/
+data/
+
+# Python virtual environment
+cowrie-env/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# SSH keys (if generated locally during testing)
+ssh_host_*_key
+ssh_host_*_key.pub
+
+# Backup directories
+backups/
+*.tar.gz
+
+# Configuration backups
+*.cfg.backup
+*.txt.backup
+*.conf.backup
