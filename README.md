@@ -12,4 +12,3 @@ This project teaches you how to deploy honeypots like Cowrie and Honeyd to simul
   * Week 3: Analyze patterns, fingerprint attacks (IP, country, tools used).
   * Week 4: Report results, suggest network hardening.
 * Deliverables: Honeypot logs, attack timeline, network analysis report.
-
