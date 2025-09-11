@@ -4,7 +4,6 @@
 
 The Cowrie honeypot project has been completely restructured to separate concerns, improve maintainability, and fix all markdown linter errors. The project has been transformed from a monolithic script into a professional, modular deployment system.
 
-
 ## Major Changes Implemented
 
 ### 1. Modularization and Directory Structure
@@ -80,7 +79,6 @@ honeypot-final-proyect/
 ### 5. Attacker Simulation
 
 - `attacker-scripts/` directory provides scripts and resources to simulate attacks against the honeypot for testing and demonstration purposes.
-
 
 ## Functional Improvements
 
