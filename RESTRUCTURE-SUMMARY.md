@@ -4,9 +4,10 @@
 
 The Cowrie honeypot project has been completely restructured to separate concerns, improve maintainability, and fix all markdown linter errors. The project has been transformed from a monolithic script into a professional, modular deployment system.
 
+
 ## Major Changes Implemented
 
-### 1. Script Modularization
+### 1. Modularization and Directory Structure
 
 #### Before: Single Monolithic Script
 
@@ -15,46 +16,71 @@ The Cowrie honeypot project has been completely restructured to separate concern
 - Hard to maintain and customize
 - Difficult to test individual components
 
-#### After: Modular Script Architecture
+#### After: Professional Modular Architecture
 
 ```plaintext
-scripts/
-├── README.md           # Scripts documentation
-├── messages.sh         # All display messages and banners
-├── utils.sh           # Core utility functions
-├── monitor.sh         # Monitoring functionality
-├── backup.sh          # Backup operations
-└── fix-markdown.sh    # Documentation maintenance
+honeypot-final-proyect/
+├── attacker-scripts/           # Scripts and resources for attacking/testing the honeypot
+│   ├── passwords.txt           # Password dictionary for brute force
+│   ├── README.md               # Documentation for attacker scripts
+│   └── ssh-bruteforce.sh       # SSH brute force attack script
+├── config/                     # Configuration files for Cowrie
+│   ├── cowrie.cfg
+│   ├── cowrie.logrotate
+│   ├── cowrie.service
+│   ├── iptablesload
+│   ├── motd
+│   ├── README.md
+│   ├── userdb.txt
+│   └── validate-config.sh
+├── docs/                       # Project documentation
+│   ├── installation-guide.md
+│   ├── organization-summary.md
+│   ├── README.md
+│   ├── security-warnings.md
+│   └── setup-complete.md
+├── elk-setup/                  # ELK Stack setup and integration
+│   ├── elk-cowrie-aws-guia.md  # Guide for ELK + Cowrie + AWS
+│   ├── elk-install.sh          # ELK installation script
+│   ├── kibana-dashboard.ndjson # Example Kibana dashboard
+│   ├── logstash/               # Logstash pipeline configs
+│   │   └── cowrie.conf         # Logstash pipeline for Cowrie logs
+│   ├── logstash-cowrie.conf    # (legacy, see logstash/cowrie.conf)
+│   └── README.md
+├── scripts/                    # Utility scripts
+│   ├── backup.sh
+│   ├── fix-markdown.sh
+│   ├── messages.sh
+│   ├── monitor.sh
+│   ├── README.md
+│   └── utils.sh
+├── .gitignore
+├── cowrie-setup.sh
+├── LICENSE
+├── PROJECT-STRUCTURE.md
+├── README.md
+├── RESTRUCTURE-SUMMARY.md
 ```
 
 ### 2. Documentation Organization
 
-#### Comprehensive Documentation Structure
-
-```plaintext
-docs/
-├── README.md                 # Documentation index
-├── installation-guide.md     # Complete installation instructions
-├── setup-complete.md        # Post-installation management
-├── security-warnings.md     # Security guidelines and warnings
-└── organization-summary.md   # Project restructuring details
-```
+- All documentation is now in the `docs/` folder, with clear separation for installation, security, and project organization.
+- Each major script and configuration directory includes its own `README.md` for local documentation.
 
 ### 3. Configuration Management
 
-#### Modular Configuration Files
+- All Cowrie configuration files are modular and located in the `config/` directory.
+- Validation and documentation scripts included for easier maintenance.
 
-```plaintext
-config/
-├── README.md              # Configuration documentation
-├── validate-config.sh     # Configuration validation
-├── cowrie.cfg            # Main Cowrie configuration
-├── userdb.txt            # Fake user credentials
-├── motd                  # Message of the Day
-├── cowrie.service        # Systemd service
-├── cowrie.logrotate      # Log rotation rules
-└── iptablesload          # Network rules
-```
+### 4. ELK Stack Integration
+
+- Dedicated `elk-setup/` directory for all ELK Stack installation, configuration, and integration with Cowrie.
+- Includes Logstash pipeline, dashboards, and a full integration guide for AWS deployments.
+
+### 5. Attacker Simulation
+
+- `attacker-scripts/` directory provides scripts and resources to simulate attacks against the honeypot for testing and demonstration purposes.
+
 
 ## Functional Improvements
 
