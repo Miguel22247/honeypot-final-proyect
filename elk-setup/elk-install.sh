@@ -28,5 +28,6 @@ systemctl status elasticsearch --no-pager
 systemctl status logstash --no-pager
 systemctl status kibana --no-pager
 
-echo "\nELK Stack instalado. Accede a Kibana en http://localhost:5601"
+echo
+echo "ELK Stack instalado. Accede a Kibana en http://localhost:5601"
 echo "Recuerda configurar la seguridad y los pipelines de Logstash para Cowrie."
