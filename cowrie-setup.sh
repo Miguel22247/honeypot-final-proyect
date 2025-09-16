@@ -110,6 +110,9 @@ sudo -u cowrie chmod +x /home/cowrie/cowrie/backup.sh
 # Add cron job for daily backup
 setup_backup_cron
 
+# Instalar y configurar Filebeat para Cowrie + Logstash
+"$SCRIPT_DIR/scripts/install-filebeat.sh"
+
 show_service_start
 start_cowrie_service
 
