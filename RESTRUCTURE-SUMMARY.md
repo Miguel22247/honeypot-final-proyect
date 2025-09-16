@@ -22,7 +22,8 @@ honeypot-final-proyect/
 ├── attacker-scripts/           # Scripts and resources for attacking/testing the honeypot
 │   ├── passwords.txt           # Password dictionary for brute force
 │   ├── README.md               # Documentation for attacker scripts
-│   └── ssh-bruteforce.sh       # SSH brute force attack script
+│   ├── ssh-bruteforce.sh       # SSH brute force attack script
+│   └── schedule-ssh-bruteforce.sh # Script para agendar ataques automáticos vía cron
 ├── config/                     # Configuration files for Cowrie
 │   ├── cowrie.cfg
 │   ├── cowrie.logrotate
@@ -79,6 +80,7 @@ honeypot-final-proyect/
 ### 5. Attacker Simulation
 
 - `attacker-scripts/` directory provides scripts and resources to simulate attacks against the honeypot for testing and demonstration purposes.
+- Incluye `schedule-ssh-bruteforce.sh` para automatizar ataques de fuerza bruta vía cron, útil en laboratorios y pruebas continuas.
 
 ## Functional Improvements
 
@@ -108,6 +110,7 @@ honeypot-final-proyect/
 - **Dedicated Monitor Script**: `scripts/monitor.sh` for system monitoring
 - **Automated Backups**: `scripts/backup.sh` with retention management
 - **Documentation Tools**: `scripts/fix-markdown.sh` for maintenance
+- **Filebeat Integration**: `scripts/install-filebeat.sh` for automated Filebeat setup and `elk-setup/filebeat-cowrie.yml` for recommended config
 
 ## Documentation Improvements
 
@@ -177,13 +180,20 @@ honeypot-final-proyect/
 │   ├── setup-complete.md
 │   ├── security-warnings.md
 │   └── organization-summary.md
+├── elk-setup/                  # ELK Stack integration
+│   ├── README.md
+│   ├── elk-install.sh
+│   ├── logstash-cowrie.conf
+│   ├── kibana-dashboard.ndjson
+│   └── filebeat-cowrie.yml     # Filebeat config for Cowrie
 └── scripts/                    # Modular scripts
     ├── README.md
     ├── messages.sh
     ├── utils.sh
     ├── monitor.sh
     ├── backup.sh
-    └── fix-markdown.sh
+    ├── fix-markdown.sh
+    └── install-filebeat.sh     # Filebeat installation and config
 ```
 
 ## Impact

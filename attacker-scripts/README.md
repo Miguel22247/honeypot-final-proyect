@@ -28,3 +28,24 @@ Este script realiza un ataque de fuerza bruta SSH contra una máquina (por ejemp
 
 - Este script es solo para fines educativos y de pruebas controladas.
 - No uses este script contra sistemas sin autorización.
+
+## Agendar ataque SSH automatizado vía cron
+
+El script `schedule-ssh-bruteforce.sh` agenda ataques de fuerza bruta SSH cada minuto para los usuarios `root`, `admin`, `test`, `guest` y `ubuntu` usando el diccionario `passwords.txt`.
+
+### Ejecución automática
+
+```bash
+./schedule-ssh-bruteforce.sh <IP_HONEYPOT>
+```
+
+- Ejemplo: `./schedule-ssh-bruteforce.sh 1.2.3.4`
+- Los logs se guardan en `/tmp/ssh_bruteforce_<usuario>.log`
+- Para ver las tareas agendadas: `crontab -l`
+- Para eliminar las tareas: `crontab -r`
+
+### Consideraciones
+
+- El script agenda el ataque cada minuto (ideal para laboratorio).
+- Modifica la lista de usuarios en el script si necesitas otros nombres.
+- El diccionario de contraseñas debe estar en el mismo folder y llamarse `passwords.txt`.

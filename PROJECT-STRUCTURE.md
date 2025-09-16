@@ -9,7 +9,8 @@ honeypot-final-proyect/
 ├── attacker-scripts/           # Scripts and resources for attacking/testing the honeypot
 │   ├── passwords.txt           # Password dictionary for brute force
 │   ├── README.md               # Documentation for attacker scripts
-│   └── ssh-bruteforce.sh       # SSH brute force attack script
+│   ├── ssh-bruteforce.sh       # SSH brute force attack script
+│   └── schedule-ssh-bruteforce.sh # Script para agendar ataques automáticos vía cron
 ├── config/                     # Configuration files for Cowrie
 │   ├── cowrie.cfg
 │   ├── cowrie.logrotate
@@ -41,7 +42,7 @@ honeypot-final-proyect/
 │   ├── README.md
 │   └── utils.sh
 ├── .gitignore
-├── cowrie-setup.sh
+├── cowrie-setup.sh             # Main installation script
 ├── LICENSE
 ├── PROJECT-STRUCTURE.md
 ├── README.md
@@ -64,6 +65,7 @@ honeypot-final-proyect/
 - Better version control and maintenance
 - Clear separation of concerns
 - Validation script ensures configuration integrity
+- Attacker scripts ahora incluyen automatización de ataques vía cron con `schedule-ssh-bruteforce.sh` para pruebas de laboratorio
 
 ## Usage
 
