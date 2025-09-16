@@ -42,6 +42,7 @@ honeypot-final-proyect/
 ├── elk-setup/                  # ELK Stack setup and integration
 │   ├── elk-cowrie-aws-guia.md  # Guide for ELK + Cowrie + AWS
 │   ├── elk-install.sh          # ELK installation script
+│   ├── install-elk-docker.sh  # Script para instalar y ejecutar ELK stack con Docker
 │   ├── kibana-dashboard.ndjson # Example Kibana dashboard
 │   ├── logstash/               # Logstash pipeline configs
 │   │   └── cowrie.conf         # Logstash pipeline for Cowrie logs
@@ -75,7 +76,7 @@ honeypot-final-proyect/
 ### 4. ELK Stack Integration
 
 - Dedicated `elk-setup/` directory for all ELK Stack installation, configuration, and integration with Cowrie.
-- Includes Logstash pipeline, dashboards, and a full integration guide for AWS deployments.
+- Incluye Logstash pipeline, dashboards, una guía completa para AWS y el script `install-elk-docker.sh` para instalación rápida con Docker.
 
 ### 5. Attacker Simulation
 
@@ -183,6 +184,7 @@ honeypot-final-proyect/
 ├── elk-setup/                  # ELK Stack integration
 │   ├── README.md
 │   ├── elk-install.sh
+│   ├── install-elk-docker.sh
 │   ├── logstash-cowrie.conf
 │   ├── kibana-dashboard.ndjson
 │   └── filebeat-cowrie.yml     # Filebeat config for Cowrie

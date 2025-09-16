@@ -29,6 +29,7 @@ honeypot-final-proyect/
 ├── elk-setup/                  # ELK Stack setup and integration
 │   ├── elk-cowrie-aws-guia.md  # Guide for ELK + Cowrie + AWS
 │   ├── elk-install.sh          # ELK installation script
+│   ├── install-elk-docker.sh  # Script para instalar y ejecutar ELK stack con Docker
 │   ├── kibana-dashboard.ndjson # Example Kibana dashboard
 │   ├── logstash/               # Logstash pipeline configs
 │   │   └── cowrie.conf         # Logstash pipeline for Cowrie logs
