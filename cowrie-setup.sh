@@ -69,7 +69,13 @@ else
     show_validation_success
 fi
 
-# Copy configuration files
+
+# Corregir permisos antes de copiar archivos de configuración
+print_info "Corrigiendo permisos de la carpeta y archivos de configuración..."
+sudo chmod 755 "$CONFIG_DIR"
+sudo chmod 644 "$CONFIG_DIR"/*
+
+# Copiar archivos de configuración
 copy_config_files "$CONFIG_DIR"
 
 # Generate SSH host keys and create directories
