@@ -13,7 +13,7 @@ This project guides you through deploying and monitoring honeypots (Cowrie, Hone
 ## Timeline
 
 - **Week 1:** Deploy Cowrie on a public VPS, configure with fake credentials. ✅
-- **Week 2:** Capture attacker commands and upload behavior, integrate with ELK for log analysis.
+- **Week 2:** Capture attacker commands and upload behavior, integrate with ELK for log analysis. ✅
 - **Week 3:** Analyze attack patterns, fingerprint sources (IP, country, tools used).
 - **Week 4:** Report results, suggest network hardening and improvements.
 
