@@ -124,5 +124,43 @@ else
     exit 1
 fi
 
+
+# --- Filebeat Setup for Cowrie + Logstash ---
+print_info "Instalando y configurando Filebeat para integración con Logstash..."
+if command -v filebeat >/dev/null 2>&1; then
+    print_info "Filebeat ya está instalado."
+else
+    print_info "Instalando Filebeat..."
+    sudo apt-get update
+    sudo apt-get install -y filebeat
+fi
+
+# Copiar configuración recomendada
+if [ -f "$SCRIPT_DIR/elk-setup/filebeat-cowrie.conf" ]; then
+    sudo cp "$SCRIPT_DIR/elk-setup/filebeat-cowrie.conf" /etc/filebeat/filebeat.yml
+    print_info "Configuración de Filebeat copiada."
+else
+    print_warning "No se encontró filebeat-cowrie.conf en elk-setup."
+fi
+
+# Habilitar e iniciar Filebeat
+sudo systemctl enable filebeat
+sudo systemctl restart filebeat
+print_info "Filebeat configurado para enviar logs de Cowrie a Logstash en localhost:5044."
+
+
+# Validar que Filebeat está enviando logs
+print_info "Verificando el estado de Filebeat..."
+sudo systemctl status filebeat | head -20
+
+print_info "Verificando que los logs de Cowrie están siendo leídos por Filebeat..."
+if sudo filebeat test config; then
+    print_info "La configuración de Filebeat es válida."
+else
+    print_warning "La configuración de Filebeat tiene errores. Revisa /etc/filebeat/filebeat.yml."
+fi
+
+print_info "Verifica en Logstash y Kibana que los eventos de Cowrie están llegando correctamente."
+
 # Display final information using message functions
 show_setup_complete
