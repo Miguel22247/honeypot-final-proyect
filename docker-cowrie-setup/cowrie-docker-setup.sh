@@ -19,7 +19,7 @@ fi
 # Pull Cowrie Docker image
 if ! docker image inspect cowrie/cowrie:latest &> /dev/null; then
     echo "Pulling Cowrie Docker image..."
-    docker pull cowrie/cowrie:latest
+  sudo docker pull cowrie/cowrie:latest
 fi
 
 # Create Cowrie data directory
@@ -29,7 +29,7 @@ mkdir -p ~/cowrie-docker-data
 # Expose SSH (2222) and Telnet (2323) ports
 # Mount persistent data volume
 
-docker run -d \
+sudo docker run -d \
   --name cowrie \
   -p 2222:2222 \
   -p 2323:2323 \
