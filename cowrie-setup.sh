@@ -71,7 +71,7 @@ fi
 
 
 # Corregir permisos antes de copiar archivos de configuración
-print_info "Corrigiendo permisos de la carpeta y archivos de configuración..."
+print_status "Corrigiendo permisos de la carpeta y archivos de configuración..."
 sudo chmod 755 "$CONFIG_DIR"
 sudo chmod 644 "$CONFIG_DIR"/*
 
