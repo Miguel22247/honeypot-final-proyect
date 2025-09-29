@@ -90,10 +90,16 @@ setup_authbind
 show_firewall_config
 setup_iptables
 
+
 # Create systemd service and copy system files
 show_systemd_service
 copy_system_files "$CONFIG_DIR"
-enable_cowrie_service
+
+# Recargar systemd y habilitar/iniciar el servicio cowrie
+print_info "Recargando systemd y habilitando el servicio cowrie..."
+sudo systemctl daemon-reload
+sudo systemctl enable cowrie
+sudo systemctl restart cowrie
 
 # Create log rotation configuration
 show_log_rotation
