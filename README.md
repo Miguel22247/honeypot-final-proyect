@@ -1,15 +1,51 @@
+# ssh-bruteforce.sh
 
-# Cowrie Honeypot (Docker Edition)
+Este script realiza un ataque de fuerza bruta SSH contra una máquina (por ejemplo, un honeypot Cowrie) usando un diccionario de contraseñas.
 
-This project now uses Docker for all honeypot and ELK deployments. Manual installation scripts have been deprecated.
+## Uso
 
-## Quick Start
+```bash
+./ssh-bruteforce.sh <IP_HONEYPOT> <USUARIO> <diccionario_passwords.txt>
+```
 
-1. Run `cowrie-setup.sh` to deploy Cowrie and ELK using Docker.
-2. See `docs/installation-guide.md` for details.
+- `<IP_HONEYPOT>`: Dirección IP de la VPS con Cowrie.
+- `<USUARIO>`: Usuario a probar (por ejemplo, root).
+- `<diccionario_passwords.txt>`: Archivo de texto con una contraseña por línea.
 
-## Structure
+## Requisitos
 
-- `cowrie-setup.sh`: Main Docker setup script for Cowrie and ELK.
-- `docker-cowrie-setup/`: Docker resources and documentation.
-- `docs/`: Full documentation.
+- bash
+- sshpass (`sudo apt install sshpass` en Ubuntu/Debian)
+- ssh
+
+## Ejemplo de uso
+
+```bash
+./ssh-bruteforce.sh 1.2.3.4 root passwords.txt
+```
+
+## Notas
+
+- Este script es solo para fines educativos y de pruebas controladas.
+- No uses este script contra sistemas sin autorización.
+
+## Agendar ataque SSH automatizado vía cron
+
+El script `schedule-ssh-bruteforce.sh` agenda ataques de fuerza bruta SSH cada minuto para los usuarios `root`, `admin`, `test`, `guest` y `ubuntu` usando el diccionario `passwords.txt`.
+
+### Ejecución automática
+
+```bash
+./schedule-ssh-bruteforce.sh <IP_HONEYPOT>
+```
+
+- Ejemplo: `./schedule-ssh-bruteforce.sh 1.2.3.4`
+- Los logs se guardan en `/tmp/ssh_bruteforce_<usuario>.log`
+- Para ver las tareas agendadas: `crontab -l`
+- Para eliminar las tareas: `crontab -r`
+
+### Consideraciones
+
+- El script agenda el ataque cada minuto (ideal para laboratorio).
+- Modifica la lista de usuarios en el script si necesitas otros nombres.
+- El diccionario de contraseñas debe estar en el mismo folder y llamarse `passwords.txt`.
