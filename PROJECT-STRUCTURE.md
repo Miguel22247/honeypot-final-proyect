@@ -4,19 +4,13 @@ This project has been reorganized to use modular configuration files for better 
 
 ## Project Structure
 
+
 ```plaintext
 honeypot-final-proyect/
-├── README.md                    # Project overview and timeline
-├── cowrie-setup.sh             # Main installation script
-└── config/                     # Configuration files directory
-    ├── README.md               # Configuration documentation
-    ├── validate-config.sh      # Configuration validation script
-    ├── cowrie.cfg              # Main Cowrie configuration
-    ├── userdb.txt              # Fake user credentials database
-    ├── motd                    # Message of the Day file
-    ├── cowrie.service          # Systemd service configuration
-    ├── cowrie.logrotate        # Log rotation configuration
-    └── iptablesload            # Network rules restoration script
+├── cowrie-setup.sh                # Docker setup script for Cowrie & ELK
+├── docker-cowrie-setup/           # Docker resources and documentation
+├── docs/                          # Documentation
+└── scripts/                       # Message functions and utilities
 ```
 
 ## Changes Made
