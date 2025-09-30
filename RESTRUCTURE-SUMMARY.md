@@ -1,10 +1,11 @@
-
 # Restructuring Summary
 
 ## Major Changes
+
 - All manual installation scripts removed.
 - Docker is now the only supported deployment method.
 - Message functions integrated for professional output.
+- Attacker-scripts folder added for testing and attack simulation.
 
 ### Monitoring and Maintenance
 
@@ -80,6 +81,10 @@ honeypot-final-proyect/
 │   ├── setup-complete.md
 │   ├── security-warnings.md
 │   └── organization-summary.md
+├── attacker-scripts/           # Scripts for testing and attack simulation
+│   ├── README.md
+│   ├── basic-attack.sh
+│   └── advanced-attack.sh
 └── scripts/                    # Modular scripts
     ├── README.md
     ├── messages.sh

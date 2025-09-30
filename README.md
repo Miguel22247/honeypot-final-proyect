@@ -1,4 +1,3 @@
-
 # Cowrie Honeypot (Docker Edition)
 
 This project now uses Docker for all honeypot and ELK deployments. Manual installation scripts have been deprecated.
@@ -12,4 +11,15 @@ This project now uses Docker for all honeypot and ELK deployments. Manual instal
 
 - `cowrie-setup.sh`: Main Docker setup script for Cowrie and ELK.
 - `docker-cowrie-setup/`: Docker resources and documentation.
+- `attacker-scripts/`: Scripts and resources for attacking/testing the honeypot.
 - `docs/`: Full documentation.
+
+## ELK Integration
+
+To run the official ELK stack using Docker:
+
+```bash
+sudo docker run -d --name elk -p 5601:5601 -p 9200:9200 -p 5044:5044 sebp/elk:latest
+```
+
+Configure Cowrie and ELK to send logs via Filebeat or Logstash as needed.

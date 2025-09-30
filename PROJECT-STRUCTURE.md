@@ -4,11 +4,11 @@ This project has been reorganized to use modular configuration files for better 
 
 ## Project Structure
 
-
 ```plaintext
 honeypot-final-proyect/
 ├── cowrie-setup.sh                # Docker setup script for Cowrie & ELK
 ├── docker-cowrie-setup/           # Docker resources and documentation
+├── attacker-scripts/              # Scripts and resources for attacking/testing the honeypot
 ├── docs/                          # Documentation
 └── scripts/                       # Message functions and utilities
 ```

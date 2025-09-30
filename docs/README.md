@@ -1,4 +1,3 @@
-
 # Documentation Index
 
 This directory contains comprehensive documentation for the Cowrie Honeypot deployment project.
@@ -10,6 +9,7 @@ This directory contains comprehensive documentation for the Cowrie Honeypot depl
 - **[Installation Guide](installation-guide.md)** - Docker-based setup instructions and troubleshooting
 - **[Setup Complete](setup-complete.md)** - Post-installation information and management commands
 - **[Security Warnings](security-warnings.md)** - Critical security considerations and best practices
+- **[Attacker Scripts](../attacker-scripts/README.md)** - Scripts and resources for attacking/testing the honeypot
 
 ## 🚀 Quick Start
 
