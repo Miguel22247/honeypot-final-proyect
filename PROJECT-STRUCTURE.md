@@ -7,10 +7,50 @@ This project has been reorganized to use modular configuration files for better 
 ```plaintext
 honeypot-final-proyect/
 ├── cowrie-setup.sh                # Docker setup script for Cowrie & ELK
-├── docker-cowrie-setup/           # Docker resources and documentation
 ├── attacker-scripts/              # Scripts and resources for attacking/testing the honeypot
+│   ├── passwords.txt
+│   ├── README.md
+│   ├── schedule-ssh-bruteforce.sh
+│   └── ssh-bruteforce.sh
+├── config/                        # Configuration files for Cowrie
+│   ├── cowrie.cfg
+│   ├── cowrie.logrotate
+│   ├── cowrie.service
+│   ├── iptablesload
+│   ├── motd
+│   ├── README.md
+│   ├── userdb.txt
+│   └── validate-config.sh
 ├── docs/                          # Documentation
-└── scripts/                       # Message functions and utilities
+│   ├── installation-guide.md
+│   ├── organization-summary.md
+│   ├── README.md
+│   ├── security-warnings.md
+│   └── setup-complete.md
+├── elk-setup/                     # ELK Stack setup and integration
+│   ├── elk-cowrie-aws-guia.md
+│   ├── elk-install.sh
+│   ├── filebeat-cowrie.conf
+│   ├── filebeat-cowrie.yml
+│   ├── install-elk-docker.sh
+│   ├── kibana-dashboard.ndjson
+│   ├── logstash/
+│   │   └── cowrie.conf
+│   ├── logstash-cowrie.conf
+│   └── README.md
+├── scripts/                       # Message functions and utilities
+│   ├── backup.sh
+│   ├── fix-markdown.sh
+│   ├── install-filebeat.sh
+│   ├── messages.sh
+│   ├── monitor.sh
+│   ├── README.md
+│   └── utils.sh
+├── .gitignore
+├── LICENSE
+├── PROJECT-STRUCTURE.md
+├── README.md
+└── RESTRUCTURE-SUMMARY.md
 ```
 
 ## Changes Made
