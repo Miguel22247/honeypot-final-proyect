@@ -1,17 +1,117 @@
-# Restructuring Summary
+# Project Restructuring Summary
 
-## Major Changes
+## Overview
 
-- All manual installation scripts removed.
-- Docker is now the only supported deployment method.
-- Message functions integrated for professional output.
-- Attacker-scripts folder added for testing and attack simulation.
+The Cowrie honeypot project has been completely restructured to separate concerns, improve maintainability, and fix all markdown linter errors. The project has been transformed from a monolithic script into a professional, modular deployment system.
+
+## Major Changes Implemented
+
+### 1. Modularization and Directory Structure
+
+#### Before: Single Monolithic Script
+
+- All functionality embedded in `cowrie-setup.sh`
+- Mixed concerns (logic, messages, utilities)
+- Hard to maintain and customize
+- Difficult to test individual components
+
+#### After: Professional Modular Architecture
+
+```plaintext
+honeypot-final-proyect/
+├── attacker-scripts/           # Scripts and resources for attacking/testing the honeypot
+│   ├── passwords.txt           # Password dictionary for brute force
+│   ├── README.md               # Documentation for attacker scripts
+│   ├── ssh-bruteforce.sh       # SSH brute force attack script
+│   └── schedule-ssh-bruteforce.sh # Script para agendar ataques automáticos vía cron
+├── config/                     # Configuration files for Cowrie
+│   ├── cowrie.cfg
+│   ├── cowrie.logrotate
+│   ├── cowrie.service
+│   ├── iptablesload
+│   ├── motd
+│   ├── README.md
+│   ├── userdb.txt
+│   └── validate-config.sh
+├── docs/                       # Project documentation
+│   ├── installation-guide.md
+│   ├── organization-summary.md
+│   ├── README.md
+│   ├── security-warnings.md
+│   └── setup-complete.md
+├── elk-setup/                  # ELK Stack setup and integration
+│   ├── elk-cowrie-aws-guia.md  # Guide for ELK + Cowrie + AWS
+│   ├── elk-install.sh          # ELK installation script
+│   ├── install-elk-docker.sh  # Script para instalar y ejecutar ELK stack con Docker
+│   ├── kibana-dashboard.ndjson # Example Kibana dashboard
+│   ├── logstash/               # Logstash pipeline configs
+│   │   └── cowrie.conf         # Logstash pipeline for Cowrie logs
+│   ├── logstash-cowrie.conf    # (legacy, see logstash/cowrie.conf)
+│   └── README.md
+├── scripts/                    # Utility scripts
+│   ├── backup.sh
+│   ├── fix-markdown.sh
+│   ├── messages.sh
+│   ├── monitor.sh
+│   ├── README.md
+│   └── utils.sh
+├── .gitignore
+├── cowrie-setup.sh
+├── LICENSE
+├── PROJECT-STRUCTURE.md
+├── README.md
+├── RESTRUCTURE-SUMMARY.md
+```
+
+### 2. Documentation Organization
+
+- All documentation is now in the `docs/` folder, with clear separation for installation, security, and project organization.
+- Each major script and configuration directory includes its own `README.md` for local documentation.
+
+### 3. Configuration Management
+
+- All Cowrie configuration files are modular and located in the `config/` directory.
+- Validation and documentation scripts included for easier maintenance.
+
+### 4. ELK Stack Integration
+
+- Dedicated `elk-setup/` directory for all ELK Stack installation, configuration, and integration with Cowrie.
+- Incluye Logstash pipeline, dashboards, una guía completa para AWS y el script `install-elk-docker.sh` para instalación rápida con Docker.
+
+### 5. Attacker Simulation
+
+- `attacker-scripts/` directory provides scripts and resources to simulate attacks against the honeypot for testing and demonstration purposes.
+- Incluye `schedule-ssh-bruteforce.sh` para automatizar ataques de fuerza bruta vía cron, útil en laboratorios y pruebas continuas.
+
+## Functional Improvements
+
+### Enhanced Setup Script (`cowrie-setup.sh`)
+
+- **Modular Functions**: Sources utility and message functions
+- **Better Error Handling**: Comprehensive validation and error messages
+- **Cleaner Output**: Professional installation progress display
+- **Improved Reliability**: Better service management and validation
+
+### New Message System (`scripts/messages.sh`)
+
+- **Consistent Formatting**: Standardized color-coded messages
+- **Modular Display**: Separate functions for different message types
+- **Easy Customization**: Simple to modify without touching core logic
+- **Professional Appearance**: Clean, organized output
+
+### Utility Functions (`scripts/utils.sh`)
+
+- **Reusable Components**: Common functions for validation and setup
+- **Better Abstraction**: Clean separation of concerns
+- **Error Handling**: Proper return codes and error management
+- **Testability**: Individual functions can be tested independently
 
 ### Monitoring and Maintenance
 
 - **Dedicated Monitor Script**: `scripts/monitor.sh` for system monitoring
 - **Automated Backups**: `scripts/backup.sh` with retention management
 - **Documentation Tools**: `scripts/fix-markdown.sh` for maintenance
+- **Filebeat Integration**: `scripts/install-filebeat.sh` for automated Filebeat setup and `elk-setup/filebeat-cowrie.yml` for recommended config
 
 ## Documentation Improvements
 
@@ -81,17 +181,21 @@ honeypot-final-proyect/
 │   ├── setup-complete.md
 │   ├── security-warnings.md
 │   └── organization-summary.md
-├── attacker-scripts/           # Scripts for testing and attack simulation
+├── elk-setup/                  # ELK Stack integration
 │   ├── README.md
-│   ├── basic-attack.sh
-│   └── advanced-attack.sh
+│   ├── elk-install.sh
+│   ├── install-elk-docker.sh
+│   ├── logstash-cowrie.conf
+│   ├── kibana-dashboard.ndjson
+│   └── filebeat-cowrie.yml     # Filebeat config for Cowrie
 └── scripts/                    # Modular scripts
     ├── README.md
     ├── messages.sh
     ├── utils.sh
     ├── monitor.sh
     ├── backup.sh
-    └── fix-markdown.sh
+    ├── fix-markdown.sh
+    └── install-filebeat.sh     # Filebeat installation and config
 ```
 
 ## Impact
