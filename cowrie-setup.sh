@@ -69,7 +69,13 @@ else
     show_validation_success
 fi
 
-# Copy configuration files
+
+# Corregir permisos antes de copiar archivos de configuración
+print_status "Corrigiendo permisos de la carpeta y archivos de configuración..."
+sudo chmod 755 "$CONFIG_DIR"
+sudo chmod 644 "$CONFIG_DIR"/*
+
+# Copiar archivos de configuración
 copy_config_files "$CONFIG_DIR"
 
 # Generate SSH host keys and create directories
@@ -84,10 +90,16 @@ setup_authbind
 show_firewall_config
 setup_iptables
 
+
 # Create systemd service and copy system files
 show_systemd_service
 copy_system_files "$CONFIG_DIR"
-enable_cowrie_service
+
+# Recargar systemd y habilitar/iniciar el servicio cowrie
+print_info "Recargando systemd y habilitando el servicio cowrie..."
+sudo systemctl daemon-reload
+sudo systemctl enable cowrie
+sudo systemctl restart cowrie
 
 # Create log rotation configuration
 show_log_rotation
@@ -109,9 +121,6 @@ sudo -u cowrie chmod +x /home/cowrie/cowrie/backup.sh
 
 # Add cron job for daily backup
 setup_backup_cron
-
-# Instalar y configurar Filebeat para Cowrie + Logstash
-"$SCRIPT_DIR/scripts/install-filebeat.sh"
 
 show_service_start
 start_cowrie_service
