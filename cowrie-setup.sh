@@ -69,6 +69,9 @@ else
     show_validation_success
 fi
 
+# Fix permissions for config directory before copying files
+fix_config_permissions "$CONFIG_DIR"
+
 # Copy configuration files
 copy_config_files "$CONFIG_DIR"
 
