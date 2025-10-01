@@ -9,8 +9,7 @@ honeypot-final-proyect/
 ├── attacker-scripts/           # Scripts and resources for attacking/testing the honeypot
 │   ├── passwords.txt           # Password dictionary for brute force
 │   ├── README.md               # Documentation for attacker scripts
-│   ├── ssh-bruteforce.sh       # SSH brute force attack script
-│   └── schedule-ssh-bruteforce.sh # Script para agendar ataques automáticos vía cron
+│   └── ssh-bruteforce.sh       # SSH brute force attack script
 ├── config/                     # Configuration files for Cowrie
 │   ├── cowrie.cfg
 │   ├── cowrie.logrotate
@@ -29,7 +28,6 @@ honeypot-final-proyect/
 ├── elk-setup/                  # ELK Stack setup and integration
 │   ├── elk-cowrie-aws-guia.md  # Guide for ELK + Cowrie + AWS
 │   ├── elk-install.sh          # ELK installation script
-│   ├── install-elk-docker.sh  # Script para instalar y ejecutar ELK stack con Docker
 │   ├── kibana-dashboard.ndjson # Example Kibana dashboard
 │   ├── logstash/               # Logstash pipeline configs
 │   │   └── cowrie.conf         # Logstash pipeline for Cowrie logs
@@ -43,7 +41,7 @@ honeypot-final-proyect/
 │   ├── README.md
 │   └── utils.sh
 ├── .gitignore
-├── cowrie-setup.sh             # Main installation script
+├── cowrie-setup.sh
 ├── LICENSE
 ├── PROJECT-STRUCTURE.md
 ├── README.md
@@ -66,7 +64,6 @@ honeypot-final-proyect/
 - Better version control and maintenance
 - Clear separation of concerns
 - Validation script ensures configuration integrity
-- Attacker scripts ahora incluyen automatización de ataques vía cron con `schedule-ssh-bruteforce.sh` para pruebas de laboratorio
 
 ## Usage
 

@@ -69,13 +69,7 @@ else
     show_validation_success
 fi
 
-
-# Corregir permisos antes de copiar archivos de configuración
-print_status "Corrigiendo permisos de la carpeta y archivos de configuración..."
-sudo chmod 755 "$CONFIG_DIR"
-sudo chmod 644 "$CONFIG_DIR"/*
-
-# Copiar archivos de configuración
+# Copy configuration files
 copy_config_files "$CONFIG_DIR"
 
 # Generate SSH host keys and create directories
@@ -90,16 +84,10 @@ setup_authbind
 show_firewall_config
 setup_iptables
 
-
 # Create systemd service and copy system files
 show_systemd_service
 copy_system_files "$CONFIG_DIR"
-
-# Recargar systemd y habilitar/iniciar el servicio cowrie
-print_info "Recargando systemd y habilitando el servicio cowrie..."
-sudo systemctl daemon-reload
-sudo systemctl enable cowrie
-sudo systemctl restart cowrie
+enable_cowrie_service
 
 # Create log rotation configuration
 show_log_rotation

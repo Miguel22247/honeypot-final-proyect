@@ -46,37 +46,6 @@ Este directorio contiene scripts y configuraciones para instalar y conectar el s
 
 ---
 
-## Instalación rápida de ELK con Docker
-
-Este proyecto incluye un script para instalar Docker y ejecutar el stack ELK (Elasticsearch, Logstash, Kibana) usando la imagen sebp/elk.
-
-### Pasos
-
-1. Conéctate a tu instancia Linux (Ubuntu) vía SSH.
-2. Ejecuta:
-
-   ```bash
-   chmod +x install-elk-docker.sh
-   ./install-elk-docker.sh
-   ```
-
-3. Accede a Kibana en `http://<IP>:5601` desde tu navegador.
-
-### Puertos expuestos
-
-- 5601: Kibana
-- 9200: Elasticsearch
-- 5044: Logstash (Filebeat)
-
-### Notas
-
-- El script instala Docker si no está presente y ejecuta el contenedor ELK automáticamente.
-- La imagen utilizada es sebp/elk de Docker Hub.
-- Para detener el contenedor: `sudo docker stop elk`
-- Para eliminar el contenedor: `sudo docker rm elk`
-
----
-
 ## Archivos incluidos
 
 - `elk-install.sh`: Script automatizado para instalar Elasticsearch, Logstash y Kibana.
