@@ -6,11 +6,13 @@ This project has been reorganized to use modular configuration files for better 
 
 ```plaintext
 honeypot-final-proyect/
-├── attacker-scripts/           # Scripts and resources for attacking/testing the honeypot
-│   ├── passwords.txt           # Password dictionary for brute force
-│   ├── README.md               # Documentation for attacker scripts
-│   └── ssh-bruteforce.sh       # SSH brute force attack script
-├── config/                     # Configuration files for Cowrie
+├── cowrie-setup.sh                # Docker setup script for Cowrie & ELK
+├── attacker-scripts/              # Scripts and resources for attacking/testing the honeypot
+│   ├── passwords.txt
+│   ├── README.md
+│   ├── schedule-ssh-bruteforce.sh
+│   └── ssh-bruteforce.sh
+├── config/                        # Configuration files for Cowrie
 │   ├── cowrie.cfg
 │   ├── cowrie.logrotate
 │   ├── cowrie.service
@@ -19,33 +21,36 @@ honeypot-final-proyect/
 │   ├── README.md
 │   ├── userdb.txt
 │   └── validate-config.sh
-├── docs/                       # Project documentation
+├── docs/                          # Documentation
 │   ├── installation-guide.md
 │   ├── organization-summary.md
 │   ├── README.md
 │   ├── security-warnings.md
 │   └── setup-complete.md
-├── elk-setup/                  # ELK Stack setup and integration
-│   ├── elk-cowrie-aws-guia.md  # Guide for ELK + Cowrie + AWS
-│   ├── elk-install.sh          # ELK installation script
-│   ├── kibana-dashboard.ndjson # Example Kibana dashboard
-│   ├── logstash/               # Logstash pipeline configs
-│   │   └── cowrie.conf         # Logstash pipeline for Cowrie logs
-│   ├── logstash-cowrie.conf    # (legacy, see logstash/cowrie.conf)
+├── elk-setup/                     # ELK Stack setup and integration
+│   ├── elk-cowrie-aws-guia.md
+│   ├── elk-install.sh
+│   ├── filebeat-cowrie.conf
+│   ├── filebeat-cowrie.yml
+│   ├── install-elk-docker.sh
+│   ├── kibana-dashboard.ndjson
+│   ├── logstash/
+│   │   └── cowrie.conf
+│   ├── logstash-cowrie.conf
 │   └── README.md
-├── scripts/                    # Utility scripts
+├── scripts/                       # Message functions and utilities
 │   ├── backup.sh
 │   ├── fix-markdown.sh
+│   ├── install-filebeat.sh
 │   ├── messages.sh
 │   ├── monitor.sh
 │   ├── README.md
 │   └── utils.sh
 ├── .gitignore
-├── cowrie-setup.sh
 ├── LICENSE
 ├── PROJECT-STRUCTURE.md
 ├── README.md
-├── RESTRUCTURE-SUMMARY.md
+└── RESTRUCTURE-SUMMARY.md
 ```
 
 ## Changes Made

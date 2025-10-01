@@ -55,9 +55,25 @@
 
 - Configura Filebeat para leer `/var/log/cowrie/cowrie.json` y enviar a Logstash.
 
-## 5. Verifica la integración
+## 5. Verifica la integración y monitorea el flujo de logs
 
 - Ingresa a Kibana (`http://<tu-ip>:5601`), inicia sesión y verifica que el índice `cowrie-*` tenga datos.
+- En la instancia, valida que Filebeat esté funcionando:
+  
+  ```bash
+  sudo systemctl status filebeat
+  sudo filebeat test config
+  tail -f /var/log/cowrie/cowrie.json
+  tail -f /var/log/filebeat/filebeat
+  ```
+
+- En Logstash, revisa los logs para confirmar recepción de eventos:
+  
+  ```bash
+  sudo journalctl -u logstash -f
+  ```
+
+- Si no ves eventos en Kibana, revisa los logs de Filebeat y Logstash para identificar problemas de configuración o conectividad.
 
 ## 6. Recomendaciones adicionales
 

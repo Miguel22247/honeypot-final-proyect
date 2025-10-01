@@ -211,10 +211,3 @@ EOF
 setup_backup_cron() {
     (sudo -u cowrie crontab -l 2>/dev/null; echo "0 2 * * * /home/cowrie/cowrie/backup.sh >> /home/cowrie/backup.log 2>&1") | sudo -u cowrie crontab -
 }
-
-# Permission check and fix for config directory
-fix_config_permissions() {
-    local config_dir="$1"
-    sudo chmod -R 755 "$config_dir"
-    sudo chown -R $(whoami) "$config_dir"
-}
