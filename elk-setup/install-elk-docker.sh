@@ -1,5 +1,6 @@
 #!/bin/bash
 # Instala Docker y ejecuta el contenedor ELK (sebp/elk) en una instancia Linux (Ubuntu)
+# Author: Miguel Pacheco y Rolando Quiroz
 
 set -e
 

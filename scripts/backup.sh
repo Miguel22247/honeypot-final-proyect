@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Cowrie backup script
+# Author: Miguel Pacheco y Rolando Quiroz
 COWRIE_DIR="/home/cowrie/cowrie"
 BACKUP_DIR="/home/cowrie/backups"
 DATE=$(date +%Y%m%d_%H%M%S)

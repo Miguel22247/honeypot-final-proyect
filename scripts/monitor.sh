@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Cowrie monitoring script
+# Author: Miguel Pacheco y Rolando Quiroz
 COWRIE_DIR="/home/cowrie/cowrie"
 LOG_FILE="$COWRIE_DIR/var/log/cowrie/cowrie.log"
 

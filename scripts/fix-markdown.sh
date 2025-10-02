@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Script to fix common markdown linter errors
+# Author: Miguel Pacheco y Rolando Quiroz
 # This script adds proper spacing around headings and lists
 
 fix_markdown_file() {

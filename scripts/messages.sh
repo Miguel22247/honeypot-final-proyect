@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Message Display Functions for Cowrie Setup
-# This script contains all the display messages used in the setup process
+# Author: Miguel Pacheco y Rolando Quiroz
+# Este script contiene todas las funciones de mensajes usadas en el proceso de instalación
 
 # Source this file to get access to message functions:
 # source scripts/messages.sh

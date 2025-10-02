@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Utility Functions for Cowrie Setup
-# This script contains utility functions used throughout the setup process
+# Author: Miguel Pacheco y Rolando Quiroz
+# Este script contiene funciones de utilidad usadas en el proceso de instalación
 
 # Validation functions
 validate_user() {

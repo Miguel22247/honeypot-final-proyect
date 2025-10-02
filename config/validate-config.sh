@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Configuration Validation Script for Cowrie Honeypot
-# This script validates that all required configuration files are present and properly formatted
+# Author: Miguel Pacheco y Rolando Quiroz
+# Este script valida que todos los archivos de configuración requeridos estén presentes y correctamente formateados
 
 CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

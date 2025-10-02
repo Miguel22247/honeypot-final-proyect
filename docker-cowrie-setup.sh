@@ -1,6 +1,6 @@
 #!/bin/bash
 # Cowrie Honeypot Setup Script (Docker Version)
-# Author: Honeypot Security Team
+# Author: Miguel Pacheco y Rolando Quiroz
 # Date: September 2025
 
 set -e

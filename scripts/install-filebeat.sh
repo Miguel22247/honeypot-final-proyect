@@ -1,5 +1,6 @@
 #!/bin/bash
 # Instala y configura Filebeat para Cowrie + Logstash
+# Author: Miguel Pacheco y Rolando Quiroz
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

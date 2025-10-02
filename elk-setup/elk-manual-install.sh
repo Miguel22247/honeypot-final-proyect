@@ -1,5 +1,6 @@
 #!/bin/bash
 # Instala Elasticsearch, Logstash y Kibana en Ubuntu/Debian
+# Author: Miguel Pacheco y Rolando Quiroz
 # Ejecutar como root o con sudo
 set -e
 

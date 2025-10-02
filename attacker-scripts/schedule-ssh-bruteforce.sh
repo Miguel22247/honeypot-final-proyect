@@ -1,5 +1,6 @@
 #!/bin/bash
 # Script para agendar un ataque de fuerza bruta SSH vía cron
+# Author: Miguel Pacheco y Rolando Quiroz
 # Uso: ./schedule-ssh-bruteforce.sh <IP_HONEYPOT>
 # Agenda el script ssh-bruteforce.sh para cada usuario en la lista cada minuto
 # Usuarios: root, admin, test, guest, ubuntu

@@ -1,5 +1,6 @@
 #!/bin/bash
 # Script de ejemplo para "atacar" un honeypot Cowrie vía SSH
+# Author: Miguel Pacheco y Rolando Quiroz
 # Uso: ./ssh-bruteforce.sh <IP_HONEYPOT> <USUARIO> <diccionario_passwords.txt>
 # Ejemplo: ./ssh-bruteforce.sh 1.2.3.4 root passwords.txt
 
