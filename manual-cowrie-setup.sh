@@ -2,7 +2,7 @@
 
 # Cowrie Honeypot Setup Script for Public VPS
 # This script installs and configures Cowrie SSH/Telnet honeypot with fake credentials
-# Author: Honeypot Security Team
+# Author: Miguel Pacheco and Rolando Quiroz
 # Date: September 2025
 
 set -e
