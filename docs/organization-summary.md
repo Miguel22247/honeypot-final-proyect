@@ -2,7 +2,7 @@
 
 ## What Was Moved
 
-The cowrie-setup.sh script has been significantly improved by moving all informational content to a dedicated documentation structure.
+The `cowrie-setup.sh` script has been significantly improved by moving all informational content to a dedicated documentation structure.
 
 ### Before: Monolithic Script Output
 
@@ -24,8 +24,8 @@ The cowrie-setup.sh script has been significantly improved by moving all informa
 docs/
 ├── README.md                 # Documentation index and navigation
 ├── installation-guide.md     # Complete setup instructions
-├── setup-complete.md        # Post-installation management info
-└── security-warnings.md     # Critical security considerations
+├── setup-complete.md         # Post-installation management info
+└── security-warnings.md      # Critical security considerations
 ```
 
 ## Files Created/Modified

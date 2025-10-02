@@ -1,51 +1,51 @@
 # ssh-bruteforce.sh
 
-Este script realiza un ataque de fuerza bruta SSH contra una máquina (por ejemplo, un honeypot Cowrie) usando un diccionario de contraseñas.
+This script performs an SSH brute-force attack against a machine (e.g., a Cowrie honeypot) using a password dictionary.
 
-## Uso
+## Usage
 
 ```bash
-./ssh-bruteforce.sh <IP_HONEYPOT> <USUARIO> <diccionario_passwords.txt>
+./ssh-bruteforce.sh <HONEYPOT_IP> <USER> <password_dictionary.txt>
 ```
 
-- `<IP_HONEYPOT>`: Dirección IP de la VPS con Cowrie.
-- `<USUARIO>`: Usuario a probar (por ejemplo, root).
-- `<diccionario_passwords.txt>`: Archivo de texto con una contraseña por línea.
+- `<HONEYPOT_IP>`: IP address of the VPS running Cowrie.
+- `<USER>`: Username to test (e.g., root).
+- `<password_dictionary.txt>`: Text file with one password per line.
 
-## Requisitos
+## Requirements
 
 - bash
-- sshpass (`sudo apt install sshpass` en Ubuntu/Debian)
+- sshpass (`sudo apt install sshpass` on Ubuntu/Debian)
 - ssh
 
-## Ejemplo de uso
+## Example
 
 ```bash
 ./ssh-bruteforce.sh 1.2.3.4 root passwords.txt
 ```
 
-## Notas
+## Notes
 
-- Este script es solo para fines educativos y de pruebas controladas.
-- No uses este script contra sistemas sin autorización.
+- This script is for educational and controlled testing purposes only.
+- Do not use this script against unauthorized systems.
 
-## Agendar ataque SSH automatizado vía cron
+## Automated SSH Attack Scheduling via cron
 
-El script `schedule-ssh-bruteforce.sh` agenda ataques de fuerza bruta SSH cada minuto para los usuarios `root`, `admin`, `test`, `guest` y `ubuntu` usando el diccionario `passwords.txt`.
+The `schedule-ssh-bruteforce.sh` script schedules SSH brute-force attacks every minute for the users `root`, `admin`, `test`, `guest`, and `ubuntu` using the `passwords.txt` dictionary.
 
-### Ejecución automática
+### Automatic Execution
 
 ```bash
-./schedule-ssh-bruteforce.sh <IP_HONEYPOT>
+./schedule-ssh-bruteforce.sh <HONEYPOT_IP>
 ```
 
-- Ejemplo: `./schedule-ssh-bruteforce.sh 1.2.3.4`
-- Los logs se guardan en `/tmp/ssh_bruteforce_<usuario>.log`
-- Para ver las tareas agendadas: `crontab -l`
-- Para eliminar las tareas: `crontab -r`
+- Example: `./schedule-ssh-bruteforce.sh 1.2.3.4`
+- Logs are saved in `/tmp/ssh_bruteforce_<user>.log`
+- To view scheduled tasks: `crontab -l`
+- To remove tasks: `crontab -r`
 
-### Consideraciones
+### Considerations
 
-- El script agenda el ataque cada minuto (ideal para laboratorio).
-- Modifica la lista de usuarios en el script si necesitas otros nombres.
-- El diccionario de contraseñas debe estar en el mismo folder y llamarse `passwords.txt`.
+- The script schedules the attack every minute (ideal for lab environments).
+- Modify the user list in the script if you need other usernames.
+- The password dictionary must be in the same folder and named `passwords.txt`.

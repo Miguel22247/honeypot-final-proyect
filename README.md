@@ -2,6 +2,33 @@
 
 This project guides you through deploying and monitoring honeypots (Cowrie, Honeyd) to simulate vulnerable systems, attract real-world attackers, and analyze their behavior. The goal is to understand attack techniques, tools, and origins, and to generate actionable reports for improving system defenses.
 
+## Architecture Overview
+
+```plaintext
+Attacker
+   |
+   |  (SSH/Telnet)
+   v
+Cowrie Honeypot (Docker) [VPS1]
+   |
+   |  (Log files)
+   v
+Filebeat (optional)
+   |
+   |  (Forward logs)
+   v
+Logstash [VPS2]
+   |
+   v
+Elasticsearch
+   |
+   v
+Kibana
+   |
+   v
+User
+```
+
 ## Project Overview
 
 - **Objective:** Deploy honeypots to study attacker methods in the wild.

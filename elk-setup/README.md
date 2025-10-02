@@ -1,96 +1,106 @@
 # ELK Stack + Cowrie Integration
 
-Este directorio contiene scripts y configuraciones para instalar y conectar el stack ELK (Elasticsearch, Logstash, Kibana) con Cowrie Honeypot.
+This directory contains scripts and configuration files for installing and connecting the ELK stack (Elasticsearch, Logstash, Kibana) with the Cowrie honeypot.
 
-## ¿Qué es el stack ELK?
+## What is the ELK Stack?
 
-- **Elasticsearch:** Motor de búsqueda y almacenamiento de datos.
-- **Logstash:** Procesador y transformador de logs.
-- **Kibana:** Visualización y dashboards.
+- **Elasticsearch:** Search and data storage engine.
+- **Logstash:** Log processor and transformer.
+- **Kibana:** Visualization and dashboards.
 
-## ¿Por qué integrarlo con Cowrie?
+## Why integrate with Cowrie?
 
-- Centraliza y visualiza los logs de ataques capturados por Cowrie.
-- Permite análisis, alertas y dashboards en tiempo real.
+- Centralizes and visualizes attack logs captured by Cowrie.
+- Enables real-time analysis, alerts, and dashboards.
 
 ---
 
-## Instalación rápida (Ubuntu/Debian)
+## Quick Installation (Ubuntu/Debian)
 
-1. **Instala Java (requisito para Elasticsearch y Logstash):**
+1. **Install Java (required for Elasticsearch and Logstash):**
 
    ```bash
    sudo apt update
    sudo apt install -y openjdk-11-jre-headless
    ```
 
-2. **Ejecuta el script de instalación:**
+2. **Run the installation script:**
 
    ```bash
    cd elk-setup
    sudo bash elk-install.sh
    ```
 
-3. **Configura Logstash para Cowrie:**
-   - Edita `logstash-cowrie.conf` si es necesario.
-   - Copia el archivo a `/etc/logstash/conf.d/` y reinicia Logstash:
+3. **Configure Logstash for Cowrie:**
+   - Edit `logstash-cowrie.conf` if needed.
+   - Copy the file to `/etc/logstash/conf.d/` and restart Logstash:
 
      ```bash
      sudo cp logstash-cowrie.conf /etc/logstash/conf.d/
      sudo systemctl restart logstash
      ```
 
-4. **Verifica Kibana:**
-   - Accede a `http://localhost:5601` en tu navegador.
-   - Crea un índice llamado `cowrie-*` para visualizar los logs.
+4. **Verify Kibana:**
+   - Access `http://localhost:5601` in your browser.
+   - Create an index called `cowrie-*` to visualize logs.
 
 ---
 
-## Instalación rápida de ELK con Docker
+## Quick ELK Installation with Docker
 
-Este proyecto incluye un script para instalar Docker y ejecutar el stack ELK (Elasticsearch, Logstash, Kibana) usando la imagen sebp/elk.
+This project includes a script to install Docker and run the ELK stack (Elasticsearch, Logstash, Kibana) using the `sebp/elk` image.
 
-### Pasos
+### Steps
 
-1. Conéctate a tu instancia Linux (Ubuntu) vía SSH.
-2. Ejecuta:
+1. Connect to your Linux (Ubuntu) instance via SSH.
+2. Run:
 
    ```bash
    chmod +x install-elk-docker.sh
    ./install-elk-docker.sh
    ```
 
-3. Accede a Kibana en `http://<IP>:5601` desde tu navegador.
+3. Access Kibana at `http://<IP>:5601`.
 
-### Puertos expuestos
+### Exposed Ports
 
 - 5601: Kibana
 - 9200: Elasticsearch
 - 5044: Logstash (Filebeat)
 
-### Notas
+### Notes
 
-- El script instala Docker si no está presente y ejecuta el contenedor ELK automáticamente.
-- La imagen utilizada es sebp/elk de Docker Hub.
-- Para detener el contenedor: `sudo docker stop elk`
-- Para eliminar el contenedor: `sudo docker rm elk`
-
----
-
-## Archivos incluidos
-
-- `elk-install.sh`: Script automatizado para instalar Elasticsearch, Logstash y Kibana.
-- `logstash-cowrie.conf`: Configuración de Logstash para parsear logs JSON de Cowrie.
-- `kibana-dashboard.ndjson`: Ejemplo de dashboard para importar en Kibana.
-- `README.md`: Esta guía.
+- The script installs Docker if not present and runs the ELK container automatically.
+- The image used is `sebp/elk` from Docker Hub.
+- To stop the container: `sudo docker stop elk`
+- To remove the container: `sudo docker rm elk`
 
 ---
 
-## Recursos útiles
+## Integration with Cowrie
 
-- [Documentación oficial de Cowrie](https://docs.cowrie.org/en/latest/)
-- [Documentación de Elastic Stack](https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html)
+- Configure Cowrie to output logs in JSON format (`output_jsonlog` in `cowrie.cfg`).
+- Use Filebeat or Logstash to forward logs to Elasticsearch.
+- Visualize and analyze attack data in Kibana dashboards.
+
+For more details, see the installation and configuration scripts in this folder.
 
 ---
 
-> **Tip:** Puedes enviar los logs de Cowrie a Logstash usando Filebeat o directamente con Logstash leyendo el archivo JSON (`cowrie.json`).
+## Included Files
+
+- `elk-install.sh`: Automated script to install Elasticsearch, Logstash, and Kibana.
+- `logstash-cowrie.conf`: Logstash configuration to parse Cowrie JSON logs.
+- `kibana-dashboard.ndjson`: Example dashboard for import into Kibana.
+- `README.md`: This guide.
+
+---
+
+## Useful Resources
+
+- [Official Cowrie Documentation](https://docs.cowrie.org/en/latest/)
+- [Elastic Stack Documentation](https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html)
+
+---
+
+> **Tip:** You can send Cowrie logs to Logstash using Filebeat or directly with Logstash reading the JSON file (`cowrie.json`).

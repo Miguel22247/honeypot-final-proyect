@@ -32,11 +32,8 @@ This system is specifically designed to **attract attackers**. By its very natur
 #### Network Isolation
 
 ```bash
-
 # Example: Isolate honeypot on separate VLAN
-
 # Configure switch port for VLAN 100 (honeypot network)
-
 # Ensure no routing to production networks
 ```
 
@@ -58,154 +55,10 @@ This system is specifically designed to **attract attackers**. By its very natur
 
 - **Encryption:** Encrypt log files at rest and in transit
 - **Backup:** Regular backups with secure storage
-- **Access Control:** Restrict access to honeypot logs
-- **Retention:** Implement appropriate log retention policies
-
-#### Sample Handling
-
-```bash
-
-# Malware samples are stored in:
-/home/cowrie/cowrie/var/lib/cowrie/downloads/
-
-# Secure handling practices:
-
-# 1. Scan with antivirus before analysis
-
-# 2. Use isolated analysis environment
-
-# 3. Document chain of custody
-```
-
-### Operational Security
-
-#### Regular Maintenance
-
-- **Updates:** Keep underlying OS updated (carefully test first)
-- **Monitoring:** Regular health checks of honeypot services
-- **Analysis:** Periodic review of collected data
-- **Cleanup:** Regular cleanup of old logs and downloads
+- **Retention:** Follow best practices for log retention and deletion
 
 #### Incident Response
 
-1. **Detection:** Monitor for signs of compromise
-2. **Containment:** Isolate if honeypot is compromised
-3. **Analysis:** Analyze attack methods and impact
-4. **Recovery:** Restore from known good state
-5. **Documentation:** Document lessons learned
-
-## 🔍 MONITORING AND DETECTION
-
-### Key Indicators to Monitor
-
-#### Service Health
-
-- Cowrie service status and uptime
-- Log file growth and rotation
-- Disk space utilization
-- Network connectivity
-
-#### Attack Patterns
-
-- Unusual connection volumes
-- New attack techniques
-- Persistent attackers
-- Geographic distribution of attacks
-
-#### System Compromise
-
-- Unexpected processes running
-- Unusual network connections
-- File system modifications
-- Performance anomalies
-
-### Monitoring Commands
-
-```bash
-
-# Service status
-systemctl is-active cowrie
-
-# Resource usage
-df -h /home/cowrie/cowrie/var/
-ps aux | grep cowrie
-
-# Network connections
-netstat -tlnp | grep :2222
-netstat -tlnp | grep :2323
-
-# Recent attacks
-tail -100 /home/cowrie/cowrie/var/log/cowrie/cowrie.log | grep "login attempt"
-```
-
-## 📊 DATA ANALYSIS GUIDELINES
-
-### Log Analysis
-
-- **Pattern Recognition:** Look for recurring attack patterns
-- **Attribution:** Track attacks by source IP and techniques
-- **Timeline Analysis:** Understand attack progression
-- **Correlation:** Correlate with external threat intelligence
-
-### Reporting
-
-- **Regular Reports:** Generate periodic attack summaries
-- **Threat Intelligence:** Share findings with security community (anonymized)
-- **Metrics:** Track key performance indicators
-- **Trends:** Identify emerging threats and techniques
-
-## 🚨 INCIDENT RESPONSE PROCEDURES
-
-### If Honeypot is Compromised
-
-1. **Immediate Actions:**
-   - Disconnect from network
-   - Preserve system state for analysis
-   - Document timeline of events
-
-2. **Analysis Phase:**
-   - Analyze how compromise occurred
-   - Assess data that may have been accessed
-   - Determine attack methods used
-
-3. **Recovery Phase:**
-   - Rebuild honeypot from known good state
-   - Implement additional security measures
-   - Resume monitoring operations
-
-4. **Lessons Learned:**
-   - Update security procedures
-   - Enhance monitoring capabilities
-   - Share intelligence with community
-
-## 📋 COMPLIANCE CHECKLIST
-
-### Before Deployment
-
-- [ ] Legal review completed
-- [ ] Network isolation implemented
-- [ ] Monitoring systems configured
-- [ ] Backup procedures established
-- [ ] Incident response plan created
-- [ ] Access controls implemented
-
-### Ongoing Operations
-
-- [ ] Regular security updates applied
-- [ ] Log analysis performed weekly
-- [ ] Backup integrity verified monthly
-- [ ] Access logs reviewed
-- [ ] Compliance requirements met
-- [ ] Documentation maintained current
-
-## 📞 EMERGENCY CONTACTS
-
-Maintain a list of emergency contacts for:
-
-- Security team members
-- Network administrators  
-- Legal counsel
-- Law enforcement (if required)
-- Incident response team
-
-Remember: The goal is to learn about attacker behavior while maintaining security of your environment.
+- **Documentation:** Keep detailed records of all incidents
+- **Notification:** Inform relevant parties as required
+- **Review:** Regularly review and update security policies
